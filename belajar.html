@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata Diri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            padding-top: 5px;
+        }
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .pesan-terima-kasih {
+            display: none;
+            text-align: center;
+            background: #e2f0d9;
+            color: #385723;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c5e0b4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Form Biodata -->
+    <form id="formBiodata" onsubmit="kirimForm(event)">
+        <h2>Biodata Diri</h2>
+        
+        <div class="form-group">
+            <label for="nama">Nama kontol lu:</label>
+            <input type="text" id="nama" required placeholder="Masukkan kontol mu">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="nama@email.com">
+        </div>
+
+        <div class="form-group">
+            <label>Jenis Kelamin:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Laki-laki" required> Laki-laki</label>
+                <label><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pekerjaan">Pekerjaan:</label>
+            <select id="pekerjaan" required>
+                <option value="">-- Pilih Pekerjaan --</option>
+                <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
+                <option value="Karyawan">Karyawan</option>
+                <option value="Wiraswasta">Wiraswasta</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat:</label>
+            <textarea id="alamat" rows="3" required placeholder="masukan alamat lengkap"></textarea>
+            <textarea id="alamat" rows="3" required placeholder="masukan alamat lengkap"></textarea>
+        </div>
+
+        <button type="submit">Kirim</button>
+    </form>
+
+    <!-- Kotak Pesan Terima Kasih (Sembunyi secara default) -->
+    <div id="pesanSukses" class="pesan-terima-kasih">
+        <h3>Terima Kasih!</h3>
+        <p>Biodata Anda telah berhasil dikirim.</p>
+    </div>
+</div>
+
+<script>
+    function kirimForm(event) {
+        // Mencegah halaman reload saat form di-submit
+        event.preventDefault(); 
+        
+        // Sembunyikan form
+        document.getElementById("formBiodata").style.display = "none";
+        
+        // Tampilkan pesan terima kasih
+        document.getElementById("pesanSukses").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
